@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Disease Detection Upload</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <h2>Upload an MRI Image for Disease Detection</h2>
+  <form method="post" enctype="multipart/form-data">
+    <input type="file" name="file" required><br><br>
+    <label>Select Disease Type:</label>
+    <select name="model_choice" required>
+      <option value="tumor">Brain Tumor Detection</option>
+      <option value="alzheimer">Alzheimer Detection</option>
+      <option value="pneumonia">Pneumonia Detection</option>
+    </select><br><br>
+    <input type="submit" value="Upload">
+  </form>
+  {% if result %}
+  <h3> {{ result }}</h3>
+  {% if uploaded_image_url %}
+  <img src="{{ uploaded_image_url }}" alt="Uploaded Image" style="max-width:300px; margin: 10px 0;">
+  {% endif %}
+  {% if recovery_time %}
+  <p><strong>Estimated Recovery Time:</strong> {{ recovery_time }}</p>
+  {% endif %}
+  {% if cause %}
+  <p><strong>Cause of Disease:</strong> {{ cause }}</p>
+  {% endif %}
+  {% if recovery_steps %}
+  <p><strong>Steps to Recover:</strong> {{ recovery_steps }}</p>
+  {% endif %}
+  {% endif %}
+</body>
+</html>
