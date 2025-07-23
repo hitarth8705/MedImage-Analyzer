@@ -17,7 +17,7 @@ A web-based medical image analysis application that uses machine learning to det
   - Potential causes
   - Recovery recommendations
 
-## 🚀 Getting Started
+
 
 ### Prerequisites
 
